@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="angular101">
 
 <head>
   <title>HTML Page</title>
@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/material.indigo-orange.min.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
+<!-- http://api.wunderground.com/api/d77b28330d96228b/forecast/geolookup/conditions/q/CA/San_Francisco.json -->
 
   <body style="background: #ccdeff">
 
@@ -21,6 +22,7 @@
       </header>
       <main class="mdl-layout__content" style="padding: 20px;">
         <router-outlet></router-outlet>
+        {{data | json}}
       </main>
       <div class="mdl-grid">
         <!-- <div class="mdl-cell mdl-cell--12-col" style="text-align: center;">Loading</div> -->
@@ -72,6 +74,17 @@
       </div>
 
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script type="text/javascript">
+      angular.module('angular101', [])
+        .run(function($rootScope, $http) {
+          $http.get('http://api.wunderground.com/api/d77b28330d96228b/forecast/geolookup/conditions/q/CA/San_Francisco.json').then(
+            function(response) {
+              $rootScope.data = response;
+            }
+          );
+        })
+    </script>
 </body>
 
 </html>

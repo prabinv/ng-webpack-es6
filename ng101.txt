@@ -1,9 +1,0 @@
-
-Weather Underground API
-http://www.wunderground.com/weather/api/d/docs?MR=1
-
-HTML Skeleton
-https://github.com/praveen16/htmlbarebone
-
-Meetup Event
-http://www.meetup.com/AngularJS/events/224925639/
